@@ -5,13 +5,10 @@ const AddRecipe = () => {
   const initiaRecipeState = {
     title: "",
     ingredient: "",
-    recipe:"",
+    recipe:""
   };
-  const allInputs = {imgUrl: ''}
   const [recipe, setRecipe] = useState(initiaRecipeState);
   const [submitted, setSubmitted] = useState(false);
-  const [imageAsFile, setImageAsFile] = useState('')
-  const [imageAsUrl, setImageAsUrl] = useState(allInputs)
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -39,12 +36,6 @@ const AddRecipe = () => {
     setRecipe(initiaRecipeState);
     setSubmitted(false);
   };
-
-  console.log(imageAsFile)
-  const handleImageAsFile = (e) => {
-      const image = e.target.files[0]
-      setImageAsFile(imageFile => (image))
-  }
 
   return (
     <div className="submit-form">
@@ -104,7 +95,7 @@ const AddRecipe = () => {
               id="image"
               required
               value={recipe.image}
-              onChange={handleImageAsFile}
+              onChange={handleInputChange}
               name="image"
             />
           </div>
