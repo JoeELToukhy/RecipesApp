@@ -5,7 +5,8 @@ const AddRecipe = () => {
   const initiaRecipeState = {
     title: "",
     ingredient: "",
-    recipe:""
+    recipe:"",
+    image:""
   };
   const [recipe, setRecipe] = useState(initiaRecipeState);
   const [submitted, setSubmitted] = useState(false);
@@ -19,9 +20,10 @@ const AddRecipe = () => {
     var data = {
       title: recipe.title,
       ingredient: recipe.ingredient,
-      recipe: recipe.recipe
-
+      recipe: recipe.recipe,
+      image: recipe.image,
     };
+    console.log(data)
 
     RecipeDataService.create(data)
       .then(() => {
