@@ -24,6 +24,7 @@ const RecipesList = () => {
     });
 
     setRecipes(recipes);
+    console.log(recipes)
   };
 
   useEffect(() => {
@@ -40,13 +41,14 @@ const RecipesList = () => {
   };
 
   const setActiveRecipe = (recipo, index) => {
-    const { title, ingredient, recipe } = recipo;
+    const { title, ingredient, recipe, image } = recipo;
 
     setCurrentRecipe({
       key: recipo.key,
       title,
       ingredient,
-      recipe
+      recipe,
+      image
     });
 
     setCurrentIndex(index);

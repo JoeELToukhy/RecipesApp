@@ -7,7 +7,7 @@ const Recipe = (props) => {
     title: "",
     ingredient: "",
     recipe: "",
-    image: ""
+    image:props.recipe.image
   };
   const [currentRecipe, setCurrentRecipe] = useState(initialRecipeState);
   const [message, setMessage] = useState("");
@@ -91,7 +91,7 @@ const Recipe = (props) => {
               />
             </div>
             <div className="form-group">
-              <img src={currentRecipe.image}  alt="description of image" />
+              <img src={currentRecipe.image}  alt="image of dish" width="100%" />
             </div>
           </form>
           <button className="badge badge-danger mr-2" onClick={deleteRecipe}>
