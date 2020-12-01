@@ -13,11 +13,13 @@ const RecipesList = () => {
     items.forEach((item) => {
       let key = item.key;
       let data = item.val();
+      console.log(data)
       recipes.push({
         key: key,
         title: data.title,
         ingredient: data.ingredient,
-        recipe: data.recipe
+        recipe: data.recipe,
+        image: data.image
       });
     });
 

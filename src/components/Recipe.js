@@ -7,6 +7,7 @@ const Recipe = (props) => {
     title: "",
     ingredient: "",
     recipe: "",
+    image: ""
   };
   const [currentRecipe, setCurrentRecipe] = useState(initialRecipeState);
   const [message, setMessage] = useState("");
@@ -20,13 +21,15 @@ const Recipe = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setCurrentRecipe({ ...currentRecipe, [name]: value });
+    console.log(currentRecipe)
   };
 
   const updateRecipe = () => {
     const data = {
       title: currentRecipe.title,
       ingredient: currentRecipe.ingredient,
-      recipe: currentRecipe.recipe
+      recipe: currentRecipe.recipe,
+      image: currentRecipe.image
     };
 
     RecipeDataService.update(currentRecipe.key, data)
@@ -86,6 +89,9 @@ const Recipe = (props) => {
                 value={currentRecipe.recipe}
                 onChange={handleInputChange}
               />
+            </div>
+            <div className="form-group">
+              <img src={currentRecipe.image}  alt="description of image" />
             </div>
           </form>
           <button className="badge badge-danger mr-2" onClick={deleteRecipe}>
