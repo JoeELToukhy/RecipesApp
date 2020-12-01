@@ -13,7 +13,13 @@ const AddRecipe = () => {
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-    setRecipe({ ...recipe, [name]: value });
+    if (name == "image") {
+        let imagePrev = URL.createObjectURL(event.target.files[0])
+        setRecipe({ ...recipe, [name]: imagePrev });
+
+    } else {
+        setRecipe({ ...recipe, [name]: value });
+    }
   };
 
   const saveRecipe = () => {
@@ -96,7 +102,7 @@ const AddRecipe = () => {
               className="form-control"
               id="image"
               required
-              value={recipe.image}
+            //   value={recipe.image}
               onChange={handleInputChange}
               name="image"
             />
